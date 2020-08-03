@@ -3,8 +3,7 @@ auth.onAuthStateChanged((user) => {
   if (user) {
     //GET DATA FROM FIREBASE
     db.collection("guidez")
-      .get()
-      .then((snapshot) => {
+      .onSnapshot((snapshot) => {
         setupGuides(snapshot.docs);
         setupUI(user);
       });
